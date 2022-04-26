@@ -1,0 +1,65 @@
+[
+    {
+        "msg": "Switch heater on",
+        "topic": "Heater",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": true,
+        "delay": 1
+    },
+    {
+        "msg": "Set temp of reactor 1",
+        "topic": "Reactor1Temp",
+        "cmd_type": 0,
+        "ReactorNo": 1,
+        "set": 35,
+        "delay": 1
+    },
+    {
+        "msg": "Change valve to reagent for pump B",
+        "topic": "FlowSynValveB",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": true,
+        "delay": 1
+    },
+        {
+        "msg": "Set flow rate for pump B",
+        "topic": "PumpBFlowRate",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": 0,
+        "delay": 1
+    },
+    {
+        "msg": "Change valve to reagent for pump A",
+        "topic": "FlowSynValveA",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": true,
+        "delay": 0.1
+    },
+    {
+        "msg": "Set flow rate for pump A",
+        "topic": "PumpAFlowRate",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": 0,
+        "delay": 0.1
+    },
+    {
+        "msg": "Change valve to collect",
+        "topic": "FlowCWValve",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": true,
+        "delay": 0.1
+    },
+    {
+        "msg": "Running",
+        "topic": "http-response",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "delay": 0.5
+    }
+]
