@@ -6,9 +6,10 @@ Supplementary information for "Use of open-source software platform to develop d
 
 ## Requirements
 [Node-RED](https://nodered.org/)
+
 [Summit](https://github.com/sustainable-processes/summit)
 
-## Set-up of Node-RED
+## Setting up Node-RED
 Refer to ESI of original publication to get a better idea of how to work with node-RED and import the developed flows.
 
 ## License
