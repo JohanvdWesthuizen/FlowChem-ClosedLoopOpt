@@ -1,5 +1,5 @@
 # FlowChem - Closed-Loop Optimisation
-Closed-loop optimisation using Node-RED dashboard and [Summit](https://github.com/sustainable-processes/summit)
+Open-source platform for control and automation of flow chemistry equipment.
 
 ## Description
 Supplementary information for "Use of open-source software platform to develop dashboards for control and automation of flow chemistry equipment", by C. Johan van der Westhuizen, Jurie du Toit, Nicole Neyt, Darren Riley, Jenny-Lee Panayides.
