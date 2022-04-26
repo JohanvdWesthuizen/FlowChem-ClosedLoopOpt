@@ -1,0 +1,64 @@
+[
+        {
+            "msg": "Change valve to solvent for pump A",
+            "topic": "FlowSynValveA",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "set": false,
+            "delay": 1
+        },
+        {
+            "msg": "Change valve to solvent for pump B",
+            "topic": "FlowSynValveB",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "set": false,
+            "delay": 1
+        },
+        {
+            "msg": "Change valve to waste",
+            "topic": "FlowCWValve",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "set": false,
+            "delay": 1
+        },
+        {
+            "msg": "Set flow rate for pump A (high)",
+            "topic": "PumpAFlowRate",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "set": 1.2,
+            "delay": 1
+        },
+        {
+            "msg": "Set flow rate for pump B (high)",
+            "topic": "PumpBFlowRate",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "set": 1.4,
+            "delay": 1
+        },
+        {
+            "msg": "Wait for complete flush",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "delay": 220
+        },
+        {
+            "msg": "Stop pump A",
+            "topic": "PumpAFlowRate",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "set": 0,
+            "delay": 1
+        },
+        {
+            "msg": "Stop pump B",
+            "topic": "PumpBFlowRate",
+            "cmd_type": 1,
+            "ReactorNo": 1,
+            "set": 0,
+            "delay": 1
+        }
+]
