@@ -14,4 +14,4 @@ Refer to ESI of original publication to get a better idea of how to work with No
 The proprietary commands to control the Uniqsis equipment have been remove from from the Node-RED flows. Contact Uniqsis to obtain these commands.
 
 ## License
-This material is licensed under the [MIT license](https://github.com/JohanvdWesthuizen/FlowChem-ClosedLoopOpt/blob/main/LICENSE) and is free and provided as-is.
+This material is licensed under the [MIT license](https://github.com/JohanvdWesthuizen/FlowChem-ClosedLoopOpt/blob/main/LICENSE) and is provided as-is.
