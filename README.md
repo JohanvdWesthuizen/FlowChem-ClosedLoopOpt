@@ -10,7 +10,7 @@ Supplementary information for "Use of open-source software platform to develop d
 [Summit](https://github.com/sustainable-processes/summit)
 
 ## Setting up Node-RED
-Refer to ESI of original publication to get a better idea of how to work with node-RED and import the developed flows.
+Refer to ESI of original publication to get a better idea of how to work with Node-RED and import the developed flows.
 
 ## License
 This material is licensed under the [MIT license](https://github.com/JohanvdWesthuizen/FlowChem-ClosedLoopOpt/blob/main/LICENSE) and is free and provided as-is.
