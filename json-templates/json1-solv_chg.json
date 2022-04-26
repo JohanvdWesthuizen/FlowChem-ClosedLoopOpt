@@ -1,0 +1,26 @@
+[
+    {
+        "msg": "Change valve to reagent for pump A",
+        "topic": "FlowSynValveA",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": false,
+        "delay": 0.1
+    },
+    {
+        "msg": "Change valve to reagent for pump B",
+        "topic": "FlowSynValveB",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": false,
+        "delay": 0.1
+    },
+    {
+        "msg": "Change valve to collect",
+        "topic": "FlowCWValve",
+        "cmd_type": 1,
+        "ReactorNo": 1,
+        "set": true,
+        "delay": 0.1
+    }
+]
