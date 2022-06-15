@@ -19,6 +19,16 @@ from fractions import Fraction
 
 
 class Allylation1(Experiment):
+    outputfile = r'XXX' # Absolute path
+    IP_HPLC_PC = '146.64.91.153'
+    RasPi_start = 'XXX:1880/start'
+    RasPi_run_relay = 'XXX:1880/run_relay'
+    IP_Control_PC = '146.64.91.245'
+    absolute_path = "XXX" # Directory where JSON templates are located
+    username = 'XXX'
+    password = 'XXX'
+    ftp_password = 'XXX'
+    
 
     def __init__(self, noise_level=0, **kwargs):
         domain = self._setup_domain()
@@ -63,7 +73,7 @@ class Allylation1(Experiment):
                 sleep(0.2)
                 # IP address and credentials of HPLC PC
                 ftp = ftplib.FTP(IP)
-                ftp.login(user="user", passwd="XXX")
+                ftp.login(username, ftp_password)
                 # Move to direcotry where HPLC results are stored
                 ftp.cwd('/ClosedLoop')
 
@@ -178,10 +188,9 @@ class Allylation1(Experiment):
                 pass
 
     def _run(self, conditions, **kwargs):
-        IP_HPLC_PC = '146.64.91.153'
-
+        
         # Check how many experiments have been run
-        with open(r'C:\Users\JvdWesthuizen1\PycharmProjects\Summit-1\all_data\output4.csv', 'r', encoding='UTF8',
+        with open(outputfile, 'r', encoding='UTF8',
                   newline='') as f:
             reader = csv.reader(f, )
             lines = len(list(reader))
@@ -206,14 +215,11 @@ class Allylation1(Experiment):
         # For the script to continue, an http request needs to be sent to /cont
         if completed_exp % 3 == 0:
             print('Need to wait for new column. Send http message to \'/cont\' when ready')
-            http = socketserver.TCPServer(('146.64.91.245', 9001), MyHandler)
+            http = socketserver.TCPServer((IP_Control_PC, 9001), MyHandler)
             http.handle_request()
             print('Continuing the experiment!')
 
         print('Number of completed experiments: ' + str(completed_exp))
-
-        # Directory where JSON templates are located
-        absolute_path = "XXX"
 
         ### Sequence for reactor run
         file_path_json1 = absolute_path + '\\json1.json'
@@ -314,8 +320,8 @@ class Allylation1(Experiment):
         Exp_seq[5]['set'] = flow_A
 
         ### Start run on Uniqsis
-        test = requests.post('http://csirpharmatech.hopto.org:1880/start', json=Exp_seq,
-                             auth=HTTPBasicAuth('user', 'csirpharmatech'))
+        test = requests.post(RasPi_start, json=Exp_seq,
+                             auth=HTTPBasicAuth(username, password))
         print(test)
 
         ### Wait for reactor to start run
@@ -330,7 +336,7 @@ class Allylation1(Experiment):
                     print('from do_POST')
                 self.send_response(200)
 
-        http = socketserver.TCPServer(('146.64.91.245', 9000), MyHandler)
+        http = socketserver.TCPServer((IP_Control_PC, 9000), MyHandler)
         print('Waiting for reactor to start run')
         http.handle_request()
         print('Reactor is running')
@@ -344,7 +350,7 @@ class Allylation1(Experiment):
 
         print('Switching to solvent')
         test = requests.post('http://csirpharmatech.hopto.org:1880/start', json=Solv_chg,
-                             auth=HTTPBasicAuth('user', 'csirpharmatech'))
+                             auth=HTTPBasicAuth(username, password))
         # print(test)
 
         ### Wait for 'steady state' before taking sample
@@ -354,14 +360,14 @@ class Allylation1(Experiment):
         sleep(wait_time * 60)
 
         ### Use relay to start HPLC run
-        test = requests.post('http://csirpharmatech.hopto.org:1880/run_relay',  # json=Exp_seq,
-                             auth=HTTPBasicAuth('user', 'csirpharmatech'))
+        test = requests.post(RasPi_run_relay,  # json=Exp_seq,
+                             auth=HTTPBasicAuth(username, password))
         sleep(2)
 
         ### Start clean up of reactor
         print('Starting reactor wash')
-        run_clean = requests.post('http://csirpharmatech.hopto.org:1880/start', json=CleanUp,
-                                  auth=HTTPBasicAuth('user', 'csirpharmatech'))
+        run_clean = requests.post(RasPi_start, json=CleanUp,
+                                  auth=HTTPBasicAuth(username, password))
 
         ### Wait for HPLC to start analysis
         print('Waiting for LC analysis')
