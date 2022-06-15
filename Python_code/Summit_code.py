@@ -1,7 +1,7 @@
 from summit import Runner
 from summit.strategies import SOBO
 from pathlib import Path
-from summit.benchmarks import Allylation1
+from Allylation_code import Allylation1
 
 # Instantiate the reaction class
 exp = Allylation1()
