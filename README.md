@@ -2,7 +2,7 @@
 Open-source platform for control and automation of flow chemistry equipment.
 
 ## Description
-Supplementary information for "Use of open-source software platform to develop dashboards for control and automation of flow chemistry equipment", by C. Johan van der Westhuizen, Jurie du Toit, Nicole Neyt, Darren Riley, Jenny-Lee Panayides.
+Supplementary information for manuscript titled "Use of open-source software platform to develop dashboards for control and automation of flow chemistry equipment", by C. Johan van der Westhuizen, Jurie du Toit, Nicole Neyt, Darren Riley, Jenny-Lee Panayides.
 
 ## Requirements
 [Node-RED](https://nodered.org/)
